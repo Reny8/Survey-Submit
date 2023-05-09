@@ -34,7 +34,7 @@ ul {
 ul li {
   border: solid 1px #ccc;
   padding: 1rem;
-  width: 100%;
+  width: 96.5%;
 }
 b[value='Poor'] {
   color: rgb(167, 1, 1);

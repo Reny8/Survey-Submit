@@ -20,6 +20,7 @@
 <script>
 export default {
   name: 'SurveyForm',
+  props: ['addExperience'],
   data() {
     return {
       name: '',
@@ -45,6 +46,13 @@ export default {
       if (this.name === '' || this.radioSelection === null) {
         return;
       }
+      this.addExperience({
+        id: new Date().toISOString(),
+        name: this.name,
+        score: this.radioSelection,
+      });
+      this.name = '';
+      this.radioSelection = null;
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <TheHeader />
-  <SurveyForm />
+  <SurveyForm :addExperience="addExperience" />
   <ShowExperiences :experiences="experiences" />
 </template>
 
@@ -18,29 +18,19 @@ export default {
   },
   data() {
     return {
-      experiences: [
-        {
-          id: new Date().toISOString(),
-          name: 'Max',
-          score: 'Poor',
-        },
-        {
-          id: new Date().toISOString(),
-          name: 'Beck',
-          score: 'Average',
-        },
-        {
-          id: new Date().toISOString(),
-          name: 'John',
-          score: 'Great',
-        },
-      ],
+      experiences: [],
     };
+  },
+  methods: {
+    addExperience(surveyResult) {
+      this.experiences.unshift(surveyResult);
+    },
   },
 };
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 html {
   background-color: #efefef;
 }
@@ -48,7 +38,7 @@ body {
   margin: 0rem;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
