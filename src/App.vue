@@ -1,13 +1,16 @@
 <template>
+  <TheHeader />
   <SurveyForm />
 </template>
 
 <script>
 import SurveyForm from './components/SurveyForm.vue';
+import TheHeader from './components/TheHeader.vue';
 export default {
   name: 'App',
   components: {
     SurveyForm,
+    TheHeader,
   },
 };
 </script>
@@ -16,13 +19,15 @@ export default {
 html {
   background-color: #efefef;
 }
+body {
+  margin: 0rem;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 section {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
