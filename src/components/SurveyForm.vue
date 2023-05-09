@@ -1,15 +1,15 @@
 <template>
   <section>
     <h1>How was your learning experience?</h1>
-    <form>
+    <form @submit.prevent="submitForm">
       <div class="name-container">
         <label for="name">your name</label>
-        <input name="name" type="text" />
+        <input name="name" type="text" v-model.trim="name" />
       </div>
       <h3>My learning experience was...</h3>
 
       <div class="radio-container" v-for="radio in radioValues" :key="radio.id">
-        <input type="radio" :value="radio.value" />
+        <input type="radio" :value="radio.value" v-model="radioSelection" />
         <p>{{ radio.value }}</p>
       </div>
       <button type="submit">submit</button>
@@ -23,6 +23,7 @@ export default {
   data() {
     return {
       name: '',
+      radioSelection: null,
       radioValues: [
         {
           id: new Date().toISOString(),
@@ -39,6 +40,13 @@ export default {
       ],
     };
   },
+  methods: {
+    submitForm() {
+      if (this.name === '' || this.radioSelection === null) {
+        return;
+      }
+    },
+  },
 };
 </script>
 
@@ -47,6 +55,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 39%;
 }
 form div.radio-container {
   display: flex;
@@ -64,6 +73,7 @@ form div.name-container {
 }
 form div.name-container input {
   padding: 0.3rem 1rem;
+  width: 90%;
 }
 form div.radio-container p {
   margin: 0.2rem;

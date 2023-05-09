@@ -1,16 +1,41 @@
 <template>
   <TheHeader />
   <SurveyForm />
+  <ShowExperiences :experiences="experiences" />
 </template>
 
 <script>
 import SurveyForm from './components/SurveyForm.vue';
 import TheHeader from './components/TheHeader.vue';
+import ShowExperiences from './components/ShowExperiences.vue';
+
 export default {
   name: 'App',
   components: {
     SurveyForm,
     TheHeader,
+    ShowExperiences,
+  },
+  data() {
+    return {
+      experiences: [
+        {
+          id: new Date().toISOString(),
+          name: 'Max',
+          score: 'Poor',
+        },
+        {
+          id: new Date().toISOString(),
+          name: 'Beck',
+          score: 'Average',
+        },
+        {
+          id: new Date().toISOString(),
+          name: 'John',
+          score: 'Great',
+        },
+      ],
+    };
   },
 };
 </script>
@@ -32,7 +57,7 @@ body {
 section {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-  margin: 2rem 4rem;
+  margin: 2rem 8rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
