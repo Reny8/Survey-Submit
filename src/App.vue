@@ -1,7 +1,7 @@
 <template>
   <TheHeader />
   <SurveyForm :addExperience="addExperience" />
-  <ShowExperiences :experiences="experiences" />
+  <ShowExperiences v-if="experiences.length" :experiences="experiences" />
 </template>
 
 <script>
@@ -70,5 +70,9 @@ button:hover {
   background-color: #360b5996;
   cursor: pointer;
   transition-duration: 500ms;
+}
+button:disabled {
+  background-color: #99999996;
+  cursor: not-allowed;
 }
 </style>

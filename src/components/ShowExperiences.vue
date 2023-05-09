@@ -1,7 +1,6 @@
 <template>
   <section>
     <h1>submitted experiences</h1>
-    <button>load submitted experiences</button>
     <ul>
       <li v-for="ex in experiences" :key="ex.id">
         <b>{{ ex.name }}</b> had an experience rating of

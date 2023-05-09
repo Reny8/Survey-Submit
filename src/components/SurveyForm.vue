@@ -12,7 +12,7 @@
         <input type="radio" :value="radio.value" v-model="radioSelection" />
         <p>{{ radio.value }}</p>
       </div>
-      <button type="submit">submit</button>
+      <button type="submit" :disabled="filled">submit</button>
     </form>
   </section>
 </template>
@@ -21,6 +21,11 @@
 export default {
   name: 'SurveyForm',
   props: ['addExperience'],
+  computed: {
+    filled() {
+      return this.name === '' || this.radioSelection === null;
+    },
+  },
   data() {
     return {
       name: '',
@@ -43,9 +48,6 @@ export default {
   },
   methods: {
     submitForm() {
-      if (this.name === '' || this.radioSelection === null) {
-        return;
-      }
       this.addExperience({
         id: new Date().toISOString(),
         name: this.name,
