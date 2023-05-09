@@ -4,12 +4,22 @@
     <form @submit.prevent="submitForm">
       <div class="name-container">
         <label for="name">your name</label>
-        <input name="name" type="text" v-model.trim="name" />
+        <input
+          name="name"
+          type="text"
+          v-model.trim="name"
+          placeholder="Enter your name..."
+        />
       </div>
       <h3>My learning experience was...</h3>
 
       <div class="radio-container" v-for="radio in radioValues" :key="radio.id">
-        <input type="radio" :value="radio.value" v-model="radioSelection" />
+        <input
+          type="radio"
+          :value="radio.value"
+          v-model="radioSelection"
+          :title="radio.value"
+        />
         <p>{{ radio.value }}</p>
       </div>
       <button type="submit" :disabled="filled">submit</button>
