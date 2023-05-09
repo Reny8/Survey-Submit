@@ -82,8 +82,8 @@ form div.name-container {
   width: 100%;
 }
 form div.name-container input {
-  padding: 0.3rem 1rem;
-  width: 90%;
+  padding: 0.3rem 0.5rem;
+  width: 94.5%;
 }
 form div.radio-container p {
   margin: 0.2rem;
